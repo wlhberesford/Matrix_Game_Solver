@@ -23,10 +23,19 @@ class Matrix:
         self.player1_strats=player1_strats
         self.player2_strats=player2_strats
 
-        self.matrix=[[(0,0)*len(self.player2_strats)]*len(self.player1_strats)]
+        self.matrix=[[(0,0)]*len(self.player2_strats)]*len(self.player1_strats)
 
     def __str__(self):
-        pass
+        players="Player 1: {}\t{}\nPlayer 2: {}\t{}\n".format(self.player1,self.player1_strats,self.player2,self.player2_strats)
+        line="-"*(len(self.player2_strats)*8+1)+"\n"
+        mat=line
+        for i in range(len(self.player1_strats)):
+            mat+="|"
+            for j in range(len(self.player2_strats)):
+                mat+= " {} , {} |".format(self.matrix[i][j][0],self.matrix[i][j][0])
+            mat+="\n"
+            mat+=line
+        return players+mat
 
     '''     Accessors     '''
     def get_player(self,player_num):
