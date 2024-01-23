@@ -38,20 +38,43 @@ class Matrix:
         return players+mat
 
     '''     Accessors     '''
-    def get_player(self,player_num):
-        pass
+    def get_player(self,player_num=-1):
+        if player_num==1:
+            return self.player1
+        elif player_num==2:
+            return self.player2
+        
     def get_strats(self, player="", player_num=-1):
-        pass
+        if player=="":
+            if player_num==1:
+                return self.player1_strats
+            elif player_num==2:
+                return self.player2_strats
+        elif player_num==-1:
+            if player==self.player1:
+                return self.player1_strats
+            elif player_num==self.player2:
+                return self.player2_strats
+
     def get_matrix(self):
-        pass
+        return self.matrix
 
     '''     Mutators     '''
     def set_player(self, player_num, name):
-        pass
-    def set_strat(self, player, strat_num):
-        pass
+        if player_num==1:
+            self.player1=name
+        elif player_num==2:
+            self.player2=name
+
+    def set_strat(self, player_num, strat_num, strat):
+        if player_num==1:
+            self.player1_strats[strat_num]=strat
+        elif player_num==2:
+            self.player2_strats[strat_num]=strat
+
     def set_payoff(self, p1_strat, p2_strat, payoff):
-        pass
+        self.matrix[self.player1_strats.index(p1_strat),self.player2_strats.index(p2_strat)]=payoff
+    
     def set_payoff(self, matrix):
-        pass
+        self.matrix=matrix
 
