@@ -23,7 +23,7 @@ class Matrix:
         self.player1_strats=player1_strats
         self.player2_strats=player2_strats
 
-        self.matrix=[[(0,0)]*len(self.player2_strats)]*len(self.player1_strats)
+        self.matrix=[[(0,0) for i in player2_strats] for j in player1_strats]
 
     def __str__(self):
         players="Player 1: {}\t{}\nPlayer 2: {}\t{}\n".format(self.player1,self.player1_strats,self.player2,self.player2_strats)
@@ -68,13 +68,13 @@ class Matrix:
 
     def set_strat(self, player_num, strat_num, strat):
         if player_num==1:
-            self.player1_strats[strat_num]=strat
+            self.player1_strats[strat_num-1]=strat
         elif player_num==2:
-            self.player2_strats[strat_num]=strat
+            self.player2_strats[strat_num-1]=strat
 
-    def set_payoff(self, p1_strat, p2_strat, payoff):
-        self.matrix[self.player1_strats.index(p1_strat),self.player2_strats.index(p2_strat)]=payoff
+    def set_payoff(self, p1_strat_num, p2_strat_num, payoff):
+        self.matrix[p1_strat_num-1][p2_strat_num-1]=payoff
     
-    def set_payoff(self, matrix):
+    def set_matrix(self, matrix):
         self.matrix=matrix
 
