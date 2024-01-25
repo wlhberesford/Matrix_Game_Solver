@@ -23,7 +23,7 @@ class Matrix:
         self.player1_strats=player1_strats
         self.player2_strats=player2_strats
 
-        self.matrix=[[(0,0)]*len(self.player2_strats)]*len(self.player1_strats)
+        self.matrix=[[(0,0) for i in range(len(player2_strats))]for j in range(len(player1_strats))]
 
     def __str__(self):
         players="Player 1: {}\t\t{}\nPlayer 2: {}\t\t{}\n".format(self.player1,self.player1_strats,self.player2,self.player2_strats)
