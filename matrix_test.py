@@ -38,7 +38,7 @@ def threebythreeTest():
 
 
 if __name__=="__main__":
-    choice=int(input("Which test(s) would you like to see:\n(1) Prisoners Dilemna Test\n(2) Rock Paper Scissors\n(3) Both"))
+    choice=int(input("(1) Prisoners Dilemna Test\n(2) Rock Paper Scissors\n(3) Both\nWhich test(s) would you like to see: "))
 
     if(choice==1):
         pd_test()

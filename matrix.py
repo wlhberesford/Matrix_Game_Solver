@@ -74,10 +74,9 @@ class Matrix:
             self.player2_strats[strat_num-1]=strat
             self.player2_strats[strat_num-1]=strat
 
-    def set_payoff(self, p1_strat_num, p2_strat_num, payoff):
-        self.matrix[p1_strat_num-1][p2_strat_num-1]=payoff
+    def set_payoff(self, p1_strat, p2_strat, payoff):
+        self.matrix[self.player1_strats.index(p1_strat)][self.player2_strats.index(p2_strat)]=payoff
     
-    def set_matrix(self, matrix):
     def set_matrix(self, matrix):
         self.matrix=matrix
 
