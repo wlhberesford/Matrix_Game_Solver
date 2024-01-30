@@ -11,6 +11,16 @@ class Matrix_Reader:
     def set_matrix(self,matrix):
         self.game=matrix
 
-    def eff_strats(self):
-        pass
+    def get_player_payoff(self,player):
+        mat=self.game.get_matrix()
+        ret=mat.copy()
+        
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                ret[i][j]=mat[i][j][player-1]
+                  
+        return ret
+
+
+    
        
